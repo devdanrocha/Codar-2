@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculo de Média</title>
+	<script type="text/javascript">
+
+		function calcularMedia(){
+    
+    inputs = document.querySelectorAll("input[type=text]");
+    var quantidade = 0;
+    var total = 0;
+    for (i = 0; i < inputs.length; ++i) {
+      var valor = parseInt(inputs[i].value);
+      if(valor){
+            total = total + valor;
+            quantidade ++;
+      }
+  	}
+    var media = total / quantidade;
+    
+    document.getElementById('resultado').innerHTML  = "Media: " + media;
+  }
+</script>
+<h1>Preencha os campos abaixo para calcular a media entre eles</h1>
+
+<input type="text"/><br/>
+<input type="text"/><br/>
+<input type="text"/><br/>
+<input type="text"/><br/>
+<input type="text"/><br/>
+
+<button  onclick="calcularMedia()">Calcular</button>
+
+<p id="resultado"></p>
+
+
+	</script>
+
+</head>
+<body>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+<html>
+<body>
+
+
+<h1>Dados para Cadastro</h1>
+<form>
+	
+	<label for="nome">Nome</label><br>
+	<input type="text" id="nome" value=""><br><br>
+	<label for="nome">Pontos</label><br>
+	<input type="number" id="pontos" value=""><br><br>
+	<label for="nome">Nota</label><br>
+	<input type="number" id="nota" value=""><br><br>
+	<label for="nome">Universidade</label><br>
+	<input type="text" id="universidade" value=""><br><br>
+	<label for="nome">Empresa</label><br>
+	<input type="text" id="empresa" value=""><br><br>
+	<label for="nome">Avatars</label><br>
+	<input type="text" id="avatars" value=""><br><br>
+	<label for="nome">Horarios</label><br>
+	<input type="time" id="horarios" value=""><br><br>
+	<label for="nome">email</label><br>
+	<input type="text" id="email" value=""><br><br>
+	<label for="nome">senha</label>
+	<input type="text" id="senha" value=""><br><br>
+	
+	
+	
+
+	<button onclick="validateForm()">Cadastre-se</button>
+</form>
+
+<script>
+function validateForm(){
+	var campoNome=document.getElementById("nome");
+	var campoPontos=document.getElementById("pontos");
+	var campoNota=document.getElementById("nota");
+	var campoUniversidade=document.getElementById("universidade");
+	var campoEmpresa=document.getElementById("empresa");
+	var campoAvatars=document.getElementById("avatars");
+	var campoHorarios=document.getElementById("horarios");
+	var email=document.getElementById("email");
+	var senha=document.getElementById("senha");
+
+
+	console.log("fazendo validacao");
+
+	if (campoNome.value == "") {
+    alert("Preencha o campo nome");
+    return false;
+
+  }
+
+    if (campoPontos.value == "") {
+   	alert("Preencha o campo pontos");
+   	return false;
+   }
+
+   
+   if (campoNota.value==""){
+   	alert("Preencha o campo nota");
+   }
+
+   if (campoUniversidade.value ==""){
+   	alert("Preencha o campo universidade");
+   }
+
+   if (campoEmpresa.value == ""){
+   	alert("Preencha o campo empresa");
+   }
+
+   if (campoAvatars.value == ""){
+   	alert("Preencha o campo avatars");
+   }
+
+   if(campoHorarios.value == ""){
+   	alert("Preencha o campo horarios");
+   }
+
+   var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+       // Typical action to be performed when the document is ready:
+       document.getElementById("demo").innerHTML = xhttp.responseText;
+    }
+};
+xhttp.open("POST", "http://52.91.139.190/fsapi/users/login", true);
+xmlHttp.setRequestHeader('Content-Type', 'application/json');
+xhttp.send(JSON.stringify( 
+	{ "email": "tlopes@gmail.com", 
+	"password": "123456" }
+));
+
+event.preventDefault();
+}
+
+
+
+</script>
+
+</body>
+<script type="text/javascript" src="exercicioavancado.js"></script>
+</html>

@@ -1,0 +1,55 @@
+<html>
+<head>
+<title> Calcular Idade</title>
+<script language="javascript">
+
+function calcularIdade(Form_Teste)
+{
+
+dataNasc = document.getElementById("txt_box").value;
+
+
+var dataAtual = new Date();
+var anoAtual = dataAtual.getFullYear();
+var anoNascParts = dataNasc.split('/');
+var diaNasc = anoNascParts[0];
+var mesNasc = anoNascParts[1];
+var anoNasc = anoNascParts[2];
+var idade = anoAtual - anoNasc;
+var mesAtual = dataAtual.getMonth()+1;
+
+//se mês atual for menor que o nascimento,não faz aniversario ainda.
+if (mesAtual < mesNasc)
+{
+idade --;
+}else{
+
+if (mesAtual <= mesNasc)
+{
+if (dataAtual.getDay() < diaNasc)
+{
+//se a data atual for menor que o dia de nascimento,quer dizer que ele ainda não fez aniversario
+
+idade --;
+}
+
+}
+
+}
+
+document.getElementById("resultado").innerHTML="Sua idade é:" + idade;
+
+
+}
+</script>
+</head>
+<body>
+<h2>Digite sua idade conforme a orientação a seguir:</h2>
+<form id="Form_Teste">
+<label> Insira a data de Nascimento Ex:(02/04/1991)</label>
+<input type="text" name="txt_box" id="txt_box">
+<input type="button" value="Go!" name="btn_vai" onClick="calcularIdade(this.form);"><br><br>
+<div id="resultado"></div>
+</form>
+</body>
+</html>
